@@ -17,7 +17,7 @@ changemac(){
 echo -e "      available interfaces "
 echo -e " 1) wlan0 \n 2 wlan0mon \n 3) eth0 \n 0) Menu  "
 read macc
-#macchanger -p wlan0
+## Execute here if you choose wlan0
 	if [ $macc = "1" ] 
 	    then 
 		echo -e "How do you like to change your MAcAdd random(r) or static(s) "
@@ -41,7 +41,7 @@ read macc
             	      echo "Giboias"	
 		   fi	
 	fi
-
+## Execute here if you choose wlan0mon 
 if [ $macc = "2" ] 
 	    then 
 		echo -e "How do you like to change your MAcAdd random(r) or static(s) "
@@ -76,8 +76,32 @@ if [ $macc = "2" ]
             	      echo "Giboias"	
 		   fi	
 	fi
-
-
+## Execute here if you choose etho0
+if [ $macc = "3" ] 
+	    then 
+		echo -e "How do you like to change your MAcAdd random(r) or static(s) "
+		  read random
+		   if [ $random = "r" ]
+		       then
+			 ifconfig eth0 down
+			 sleep 0.5
+			 macchanger -r eth0
+			 ifconfig eth0 up
+			 echo -e "Done."
+			  sleep 0.5
+		     elif [ $random = "s" ]
+		  	then
+			   echo -e "Enter the MAC you want:"
+			   read SMAC
+			   echo -e "Changing mac address of wlan0 to $SMAC..."
+			   ifconfig eth0 down
+			   macchanger -m $SMAC eth0
+			   ifconfig eth0 up
+			 echo -e "Done."
+		   else
+            	      echo "Giboias"	
+		   fi	
+	fi
 
 
 } ##Finish 
