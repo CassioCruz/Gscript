@@ -1,12 +1,38 @@
 #!/bin/bash
 
+function banner
+{
+	
+	echo -e ""
+	echo -e "$COL         ██      ███████  ██      ███████  $CE $VERSION"
+	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE"
+	echo -e "$COL         ██      ██   ██  ██      ███████    by Cassio Cruz"
+	echo -e "$COL         ██      ██   ██  ██      ██   ██  $CE"
+	echo -e "$COL    The  ███████ ███████  ███████ ██   ██   script$CE"
+	echo -e "$COL                                      $CE"
+	echo -e ""$YS"if"$CE") Ifconfig           "$YS"l"$CE") Local IPs & gateways "$RS"|"$CE"  "$YS"scan"$CE") Arp-scan network"
+	echo -e ""$YS" 3"$CE") Change MAC        "$YS"d3"$CE") Restore original MAC "$RS"|"$CE""$YS"update"$CE") Check for updates"
+echo "Choose"
+    read resp
+case $resp in
+3)
+    changemac;;
+if)
+    ifconfig ;;
+*)
+    echo "foda-se";;
+esac
+shift
+
+}	
+
+
 interfaces(){
 echo "        Cards ON"
 mc=$(ifconfig | echo grep -a "ether" | cut -d "" -f2 | awk -F " " '{print $2}')
 wla=$(ifconfig | cut -d " " -f1 | grep -a "wlan0")
 eth=$(ifconfig | cut -d " " -f1 | grep -a "eth")
 echo ""
-
 echo -e " $eth \n $wla  \n           $mc"
 }
 #interfaces #func called
@@ -39,7 +65,15 @@ read macc
 			 echo -e "Done."
 		   else
             	      echo "Giboias"	
-		   fi	
+		   fi
+	echo -e "enter to back"
+	  read -n1  bck
+       if [ $bck = "y" ]
+	  then	
+	      banner
+       else
+	      echo -e "Good by"
+	  fi	
 	fi
 ## Execute here if you choose wlan0mon 
 if [ $macc = "2" ] 
@@ -110,6 +144,7 @@ if [ $macc = "3" ]
 MainMenu(){
 echo -e ""
 }
-changemac
+
+banner
 
 
