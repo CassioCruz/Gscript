@@ -10,8 +10,8 @@ function banner
 	echo -e "$COL         ██      ██   ██  ██      ██   ██  $CE"
 	echo -e "$COL    The  ███████ ███████  ███████ ██   ██   script$CE"
 	echo -e "$COL                                      $CE"
-	echo -e ""$YS"if"$CE") Ifconfig           "$YS"l"$CE") Local IPs & gateways "$RS"|"$CE"  "$YS"scan"$CE") Arp-scan network"
-	echo -e ""$YS" 3"$CE") Change MAC        "$YS"d3"$CE") Restore original MAC "$RS"|"$CE""$YS"update"$CE") Check for updates"
+	echo -e "if"$CE") Ifconfig             l3) Local IPs & gateways "
+	echo -e " 3"$CE") Change MAC         l1)  Restore original MAC "
 echo "Choose"
     read resp
 case $resp in
@@ -19,6 +19,14 @@ case $resp in
     changemac;;
 if)
     ifconfig ;;
+start)
+     StarMon;;
+l1)
+;;
+l2)
+;;
+l3)
+;;
 *)
     echo "foda-se";;
 esac
@@ -78,7 +86,7 @@ read macc
 ## Execute here if you choose wlan0mon 
 if [ $macc = "2" ] 
 	    then 
-		echo -e "How do you like to change your MAcAdd random(r) or static(s) "
+		echo -e "How do you like to change your MacAdd random(r) or static(s) "
 		  read random
 		   if [ $random = "r" ]
 		       then
@@ -140,9 +148,36 @@ if [ $macc = "3" ]
 
 } ##Finish 
 
-##Funcion MAin MEnu
-MainMenu(){
+##Restore original MAC
+RestoreMac(){
 echo -e ""
+}
+#Funcion to start a mode monitor 
+StarMon(){
+
+sleep 0.5
+clear
+ airmon-ng check kill
+echo "Your Nic is on mode monitor now" 
+sleep 0.5
+ airmon-ng start wlan0
+ ifconfig wlan0mon down
+echo -e "Changing mac address of wlan0mon "
+  macchanger -r wlan0mon > /dev/null
+  ifconfig wlan0mon up
+sleep 0.6
+  echo "Done"
+  echo -e "Interface Wlan0mon is up"
+
+echo -e "\n Enter to back."
+	  read -n1  bck
+       if [ $bck = "y" ]
+	  then	
+	      banner
+       else
+	      echo -e "Good by"
+	  fi
+
 }
 
 banner
