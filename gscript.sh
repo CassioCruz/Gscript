@@ -19,14 +19,23 @@ case $resp in
 3)  	##Call a funcion
     changemac;;
 if) 	##Call a funcion
-    ifconfig ;;
+    clear
+    ifconfig 
+    echo -e "Press y"
+	  read -n1 bck
+       if [ $bck = "y" ]
+	  then	
+	      banner
+	else
+	echo -e "\nThanks to use me"
+       fi	;;
 start)
 	##Call a funcion
      StarMon;;
 l1)
 RestoreMac;;
 l2)
-;;
+interfaces;;
 l3)
 ;;
 0)
@@ -44,15 +53,12 @@ sleep 1.5;;
     banner
 esac
 shift
-
-}	
-
-
+}
 interfaces(){
 echo "        Cards ON"
 mc=$(ifconfig | echo grep -a "ether" | cut -d "" -f2 | awk -F " " '{print $2}')
 wla=$(ifconfig | cut -d " " -f1 | grep -a "wlan0")
-eth=$(ifconfig | cut -d " " -f1 | grep -a "eth")
+#eth=$(ifconfig | cut -d " " -f1 | grep -a "eth")
 echo ""
 echo -e " $eth \n $wla  \n           $mc"
 }
@@ -219,7 +225,6 @@ read res
 }
 #Funcion to start a mode monitor 
 StarMon(){
-
 sleep 0.5
 clear
  airmon-ng check kill
