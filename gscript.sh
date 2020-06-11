@@ -2,33 +2,46 @@
 
 function banner
 {
-	
+clear
+	echo -e "by Cassio Cruz"
 	echo -e ""
-	echo -e "$COL         ██      ███████  ██      ███████  $CE $VERSION"
-	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE"
-	echo -e "$COL         ██      ██   ██  ██      ███████    by Cassio Cruz"
-	echo -e "$COL         ██      ██   ██  ██      ██   ██  $CE"
-	echo -e "$COL    The  ███████ ███████  ███████ ██   ██   script$CE"
-	echo -e "$COL                                      $CE"
-	echo -e "if"$CE") Ifconfig             l3) Local IPs & gateways "
-	echo -e " 3"$CE") Change MAC         l1)  Restore original MAC "
-echo "Choose"
+	echo -e "         ██      ███████  ██      ███████  "
+	echo -e "         ██      ██   ██  ██      ██   ██ "
+	echo -e "         ██      ██   ██  ██      ███████    "
+	echo -e "         ██      ██   ██  ██      ██   ██  "
+	echo -e "    The  ███████ ███████  ███████ ██   ██   script"
+	echo -e "                                      "
+	echo -e "if"") Ifconfig            0) Exit  "
+	echo -e " 1"") Change MAC         l1)  Restore original MAC "
+echo -e "\nChoose:"
     read resp
 case $resp in
-3)
+3)  	##Call a funcion
     changemac;;
-if)
+if) 	##Call a funcion
     ifconfig ;;
 start)
+	##Call a funcion
      StarMon;;
 l1)
-;;
+RestoreMac;;
 l2)
 ;;
 l3)
 ;;
+0)
+##If u wnat out
+c=1
+while [ $c -le 4 ] 
+do
+break
+echo "$c"
+ c=$[ $c * 2 ]
+done
+echo -e "\nThanks to use me"
+sleep 1.5;;
 *)
-    echo "foda-se";;
+    banner
 esac
 shift
 
@@ -58,9 +71,13 @@ read macc
 		  read random
 		   if [ $random = "r" ]
 		       then
-			 ifconfig wlan0 down
+			 
 			 sleep 0.5
-			 macchanger -r wlan0
+			airmon-ng stop wlan0mon
+			service network-manager start
+			ifconfig wlan0 down			 
+			macchanger -r wlan0
+			ifconfig wlan0 up
 			  sleep 0.5
 		     elif [ $random= "s" ]
 		  	then
@@ -100,7 +117,12 @@ if [ $macc = "2" ]
 		 	 #airmon-ng stop wlan0mon
 			 #service network-manager start
 			 echo -e "Done."
-			 sleep 0.5
+			sleep 1
+			changemac
+		    elif [ $res = "0" ]
+	     		then	
+	      		   banner
+
 		     elif [ $random = "s" ]
 		  	then
 			   echo -e "Enter the MAC you want:"
@@ -150,7 +172,50 @@ if [ $macc = "3" ]
 
 ##Restore original MAC
 RestoreMac(){
-echo -e ""
+clear
+echo -e "      AVAILABLE INTERFACES "
+echo -e " 1) wlan0 \n 2) wlan0mon \n 3) eth0 \n 0) Menu  "
+read res
+## Execute here if you choose wlan0
+	if [ $res = "1" ] 
+	    then 
+		echo -e "Changing mac address of wlan0"
+	        ifconfig wlan0 down
+	        macchanger -p wlan0
+		ifconfig wlan0 up
+        	echo -e "Done."
+		sleep 1
+		RestoreMac
+## Execute here if you choose wlan0mon 
+	elif [ $res = "2" ] 
+	    then 
+		echo -e "Changing mac address of wlan0mon"
+		airmon-ng check kill
+		airmon-ng start wlan0
+		ifconfig wlan0mon down
+	        macchanger -p wlan0mon
+		ifconfig wlan0mon up
+        	echo -e "Done..."
+		sleep 1
+		RestoreMac
+## Execute here if you choose etho0
+	elif [ $res = "3" ]
+	     then 
+	        echo -e "Changing mac address of eth0..."
+	        ifconfig eth0 down
+	        macchanger -p eth0
+		ifconfig eth0 up
+        	echo -e "Done."
+		sleep 1
+		RestoreMac
+	elif [ $res = "0" ]
+	     then	
+	      	banner
+	  	
+	else
+		echo "giboia"
+	 
+	fi
 }
 #Funcion to start a mode monitor 
 StarMon(){
