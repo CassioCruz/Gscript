@@ -3,7 +3,7 @@
 function banner
 {
 clear
-	echo -e "by Cassio Cruz"
+	
 	echo -e ""
 	echo -e "         ██      ███████  ██      ███████  "
 	echo -e "         ██      ██   ██  ██      ██   ██ "
@@ -11,12 +11,15 @@ clear
 	echo -e "         ██      ██   ██  ██      ██   ██  "
 	echo -e "    The  ███████ ███████  ███████ ██   ██   script"
 	echo -e "                                      "
-	echo -e "if"") Ifconfig            0) Exit  "
-	echo -e " 1"") Change MAC         l1)  Restore original MAC "
+	echo -e "if) Ifconfig             0) Exit  "
+	echo -e " 1) Change MAC           l1)  Restore original MAC "
+	echo -e " 2) Dsable wlan0         l2)  Restore original MAC "	
+	echo -e " 3) Available interfaces l3)  Restore original MAC "	
+	echo -e " 4) Enable wlan0         l4)  Restore original MAC "
 echo -e "\nChoose:"
     read resp
 case $resp in
-3)  	##Call a funcion
+1)  	##Call a funcion
     changemac;;
 if) 	##Call a funcion
     clear
@@ -37,9 +40,15 @@ RestoreMac;;
 l2)
 interfaces;;
 l3)
+2) #Disable wlan0
 ;;
-0)
-##If u wnat out
+3) #Available interface
+;;
+4) #Enable wlan0
+;;
+5) ##Nothin to think a yet
+;;
+0) #If u wnat out
 c=1
 while [ $c -le 4 ] 
 do
@@ -58,13 +67,12 @@ interfaces(){
 echo "        Cards ON"
 mc=$(ifconfig | echo grep -a "ether" | cut -d "" -f2 | awk -F " " '{print $2}')
 wla=$(ifconfig | cut -d " " -f1 | grep -a "wlan0")
-#eth=$(ifconfig | cut -d " " -f1 | grep -a "eth")
+eth=$(ifconfig | cut -d " " -f1 | grep -a "eth")
 echo ""
 echo -e " $eth \n $wla  \n           $mc"
 }
 #interfaces #func called
 #mc=$(ifconfig | grep -a "ether" | cut -d "" -f2 | awk -F " " '{print $2}')
-
 #####FuncionMacchange
 changemac(){
 echo -e "      available interfaces "
@@ -225,21 +233,21 @@ read res
 }
 #Funcion to start a mode monitor 
 StarMon(){
-sleep 0.5
-clear
+ sleep 0.5
+ clear
  airmon-ng check kill
-echo "Your Nic is on mode monitor now" 
-sleep 0.5
+ echo "Your Nic is on mode monitor now" 
+ sleep 0.5
  airmon-ng start wlan0
  ifconfig wlan0mon down
-echo -e "Changing mac address of wlan0mon "
+ echo -e "Changing mac address of wlan0mon "
   macchanger -r wlan0mon > /dev/null
   ifconfig wlan0mon up
-sleep 0.6
+ sleep 0.6
   echo "Done"
   echo -e "Interface Wlan0mon is up"
 
-echo -e "\n Enter to back."
+ echo -e "\n Enter to back."
 	  read -n1  bck
        if [ $bck = "y" ]
 	  then	
@@ -249,7 +257,7 @@ echo -e "\n Enter to back."
 	  fi
 
 }
-
+###Main funcion called
 banner
 
 
