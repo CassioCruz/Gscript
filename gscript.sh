@@ -11,11 +11,14 @@ clear
 	echo -e "         ██      ██   ██  ██      ██   ██  "
 	echo -e "    The  ███████ ███████  ███████ ██   ██   script"
 	echo -e "                                      "
-	echo -e "if) Ifconfig             0) Exit  "
+	echo -e "if) Ifconfig             l0) Exit  "
 	echo -e " 1) Change MAC           l1)  Restore original MAC "
 	echo -e " 2) Dsable wlan0         l2)  Restore original MAC "	
 	echo -e " 3) Available interfaces l3)  Restore original MAC "	
 	echo -e " 4) Enable wlan0         l4)  Restore original MAC "
+	echo -e " 5) Disable wlan0mon     l3)  Restore original MAC "	
+	echo -e " 6) Enable wlan0mon      l4)  Restore original MAC "
+	echo -e " 0) Exit "
 echo -e "\nChoose:"
     read resp
 case $resp in
@@ -40,11 +43,13 @@ RestoreMac;;
 l2)
 interfaces;;
 2) #Disable wlan0
+clear
  ifconfig wlan0 down;
  sleep 0.5
+ echo -e ""
  echo -e "Wlan0 interface is disable now... \n"
  sleep 1
- echo -e "Press y"
+ echo -e "y to back to MainMenu"
     read -n1 bck
        if [ $bck = "y" ]
 	  then	
