@@ -39,12 +39,36 @@ l1)
 RestoreMac;;
 l2)
 interfaces;;
-l3)
 2) #Disable wlan0
+ ifconfig wlan0 down;
+ sleep 0.5
+ echo -e "Wlan0 interface is disable now... \n"
+ sleep 1
+ echo -e "Press y"
+    read -n1 bck
+       if [ $bck = "y" ]
+	  then	
+	      banner
+       else
+	  echo -e "\nThanks to use me"
+       fi
 ;;
 3) #Available interface
-;;
+interfaces;;
 4) #Enable wlan0
+clear
+ifconfig wlan0 up
+sleep 0.5
+echo -e "Wlan0 interface is available now... \n"
+sleep 1
+ echo -e "Press y"
+    read -n1 bck
+       if [ $bck = "y" ]
+	  then	
+	      banner
+       else
+	  echo -e "\nThanks to use me"
+       fi
 ;;
 5) ##Nothin to think a yet
 ;;
@@ -64,12 +88,22 @@ esac
 shift
 }
 interfaces(){
+clear
 echo "        Cards ON"
-mc=$(ifconfig | echo grep -a "ether" | cut -d "" -f2 | awk -F " " '{print $2}')
+#mc=$(ifconfig | echo grep -a "ether" | cut -d "" -f2 | awk -F " " '{print $2}')
 wla=$(ifconfig | cut -d " " -f1 | grep -a "wlan0")
 eth=$(ifconfig | cut -d " " -f1 | grep -a "eth")
 echo ""
-echo -e " $eth \n $wla  \n           $mc"
+echo -e " $eth \n\n $wla \n "
+sleep 0.5
+ echo -e "Press y"
+    read -n1 bck
+       if [ $bck = "y" ]
+	  then	
+	      banner
+       else
+	  echo -e "\nThanks to use me"
+       fi
 }
 #interfaces #func called
 #mc=$(ifconfig | grep -a "ether" | cut -d "" -f2 | awk -F " " '{print $2}')
