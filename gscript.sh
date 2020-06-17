@@ -35,19 +35,19 @@ if)
 	else
 	echo -e "\nThanks to use me"
        fi	;;
-start)
-	#function called
-     StarMon;;
+6)
+#function called
+ StarMon;;
 l1)
 #function called
-RestoreMac;;
+ RestoreMac;;
 l2)
 #function called
-interfaces;;
+ interfaces;;
 2)
  #Disable wlan0
 clear
-rfkill unblock wifi &> /dev/null; rfkill unblock all &> /dev/null
+ rfkill unblock wifi &> /dev/null; rfkill unblock all &> /dev/null
  ifconfig wlan0 down;
  sleep 0.5
  echo -e ""
@@ -63,7 +63,7 @@ rfkill unblock wifi &> /dev/null; rfkill unblock all &> /dev/null
        fi
 ;;
 3) #Available interface
-interfaces;;
+ interfaces;;
 4) #Enable wlan0
 clear
 ifconfig wlan0 up
@@ -82,7 +82,7 @@ sleep 1
        fi
 ;;
 5) #Disable wlan0mon
-
+desable_wlan0mon #Function called
 ;;
 0) #If u want out
 c=1
@@ -99,6 +99,41 @@ sleep 1.5;;
 esac
 shift
 } #Finish case
+
+function disable_wlan0mon
+{
+airmon-ng stop wlan0mon
+service network-manager start
+echo -e "Interface wlan0mon disable...\n"
+sleep 0.5
+echo -e "Interface wlan0 up..."
+sleep 0.5 
+echo -e "Done..."
+echo -e "\nPress y:"
+    read -n1  bck
+        if [ $bck = "y" ]
+	   then	
+	       banner #function called
+        else
+	  volta=1
+	  left=2     
+	while [ $volta -lt 4 ]   
+           do 
+		echo -e "\nTo back to main menu press y"
+    		    read -n1 bck             
+		if [ $bck = "y" ]
+	   	   then	
+	       banner #function called
+		else
+		   echo -e "\nLeft you $left attempt."
+		fi 
+            volta=$[ $volta + 1 ]
+	    left=$[ $left -1 ]
+	done
+        fi
+
+} #finish
+################
 function interfaces 
 {
 echo "        Cards ON"
@@ -109,14 +144,28 @@ echo ""
 echo -e " $eth \n\n $wla \n\n $lo\n\n"
 echo -e "\n\n $mc"
 sleep 0.5
- echo -e "Press y"
-    read -n1 bck
-       if [ $bck = "y" ]
-	  then	
-	      banner #function called
-       else
-	  echo -e "\nThanks to use me"
-       fi
+echo -e "\nPress y:"
+    read -n1  bck
+        if [ $bck = "y" ]
+	   then	
+	       banner #function called
+        else
+	  volta=1
+	  left=2     
+	while [ $volta -lt 4 ]   
+           do 
+		echo -e "\nTo back to main menu press y"
+    		    read -n1 bck             
+		if [ $bck = "y" ]
+	   	   then	
+	       banner #function called
+		else
+		   echo -e "\nLeft you $left attempt."
+		fi 
+            volta=$[ $volta + 1 ]
+	    left=$[ $left -1 ]
+	done
+        fi
 }
 #####FuncionMacchange
 function changemac 
@@ -150,9 +199,9 @@ if [ $macc = "1" ]
 	       else
 		echo -e "Wrong choose:"
 		echo -e "Try (r) or (s)"
-		sleep 0.5
+		sleep 1.5
 		echo -e "Ok lets try again waiting..."
-		sleep 0.5		
+		sleep 1.5		
 		changemac
 	     fi
 	      echo -e "\nPress y:"
@@ -199,19 +248,34 @@ if [ $macc = "2" ]
 		 else
 		echo -e "Wrong choose:"
 		echo -e "Try (r) or (s)"
-		sleep 0.5
+		sleep 1
 		echo -e "Ok lets try again waiting..."
-		sleep 0.5		
+		sleep 1		
 		changemac
-	     fi	
-		     echo -e "Press y:"
-	         	read -n1  bck
-              	     if [ $bck = "y" ]
-	  	        then	
-	                    banner #function called
-              	     else
-	         	echo -e "Good by"
-              	      fi
+	          fi	
+		### execute it when u imput wrong options
+	echo -e "\nWrong optins \nPress y to back to main menu:"
+            read -n1  bck
+        if [ $bck = "y" ]
+	   then	
+	       banner #function called
+        else
+	  volta=1
+	  left=2     
+	  while [ $volta -lt 4 ]   
+           do 
+		echo -e "\nTo back to main menu press y"
+    		    read -n1 bck             
+		if [ $bck = "y" ]
+	   	   then	
+	       banner #function called
+		else
+		   echo -e "\nLeft you $left attempt."
+		fi 
+            volta=$[ $volta + 1 ]
+	    left=$[ $left -1 ]
+	  done
+        fi
 fi
 ## Execute here if you choose etho0
 if [ $macc = "3" ] 
@@ -248,14 +312,29 @@ if [ $macc = "0" ]
     then	
        banner #Function called
 fi
-  echo -e "\nPress y:"
-	         read -n1  bck
-              if [ $bck = "y" ]
-	  	 then	
-	           banner #function called
-              else
-	         echo -e "Good by"
-              fi
+ ### execute it when u imput wrong options
+	echo -e "\nWrong optins \nPress y to back to main menu:"
+            read -n1  bck
+        if [ $bck = "y" ]
+	   then	
+	       banner #function called
+        else
+	  volta=1
+	  left=2     
+	  while [ $volta -lt 4 ]   
+           do 
+		echo -e "\nTo back to main menu press y"
+    		    read -n1 bck             
+		if [ $bck = "y" ]
+	   	   then	
+	       banner #function called
+		else
+		   echo -e "\nLeft you $left attempt."
+		fi 
+            volta=$[ $volta + 1 ]
+	    left=$[ $left -1 ]
+	  done
+        fi
 } #ends here
 ##Restore original MAC
 function RestoreMac 
@@ -301,8 +380,11 @@ read res
 	      	banner
 	  	
 	else
-		echo "giboia"
-	fi
+		echo -e "\nDo you have 3 options:"
+  		
+	 
+        fi
+	
 } #ends here
 #Funcion to start a mode monitor 
 function StarMon 
@@ -316,15 +398,28 @@ function StarMon
  sleep 0.6
   echo "Done"
   echo -e "Interface Wlan0mon is up"
-
- echo -e "\n Enter to back."
-	  read -n1  bck
-       if [ $bck = "y" ]
-	  then	
-	      banner
-       else
-	      echo -e "Good by"
-	  fi
+ echo -e "\nPress y:"
+    read -n1  bck
+        if [ $bck = "y" ]
+	   then	
+	       banner #function called
+        else
+	  volta=1
+	  left=2     
+	  while [ $volta -lt 4 ]   
+           do 
+		echo -e "\nTo back to main menu press y"
+    		    read -n1 bck             
+		if [ $bck = "y" ]
+	   	   then	
+	       banner #function called
+		else
+		   echo -e "\nLeft you $left attempt."
+		fi 
+            volta=$[ $volta + 1 ]
+	    left=$[ $left -1 ]
+	  done
+        fi
 
 }
 ###Main funcion called
