@@ -12,7 +12,7 @@ clear
 	echo -e "                                      "
 	echo -e "if) Ifconfig             l0) Exit  "
 	echo -e " 1) Change MAC           l1)  Restore original MAC "
-	echo -e " 2) Dsable wlan0         l2)  Restore original MAC "	
+	echo -e " 2) Disable wlan0         l2)  Restore original MAC "	
 	echo -e " 3) Available interfaces l3)  Restore original MAC "	
 	echo -e " 4) Enable wlan0         l4)  Restore original MAC "
 	echo -e " 5) Disable wlan0mon     l3)  Restore original MAC "	
@@ -81,20 +81,21 @@ sleep 1
 	  echo -e "\nThanks to use me"
        fi
 ;;
-5) ##Nothin to think a yet
+5) #Disable wlan0mon
+
 ;;
-0) #If u wnat out
+0) #If u want out
 c=1
 while [ $c -le 4 ] 
 do
-break
+#break
 echo "$c"
  c=$[ $c * 2 ]
 done
 echo -e "\nThanks to use me"
 sleep 1.5;;
 *)
-    banner 
+    banner #Function called
 esac
 shift
 } #Finish case
