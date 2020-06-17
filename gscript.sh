@@ -23,6 +23,7 @@ echo -e "\nChoose:"
 case $resp in
 1)  	
 #function called
+
     changemac;;
 if)
     clear
@@ -65,21 +66,7 @@ clear
 3) #Available interface
  interfaces;;
 4) #Enable wlan0
-clear
-ifconfig wlan0 up
-sleep 0.5
-echo -e "Starting network-manager service..."
-sleep 0.7
-echo -e "Wlan0 interface is available now... \n"
-sleep 1
- echo -e "Press y"
-    read -n1 bck
-       if [ $bck = "y" ]
-	  then	
-	      banner #function called
-       else
-	  echo -e "\nThanks to use me"
-       fi
+ Enable_wlan0 #Function called
 ;;
 5) #Disable wlan0mon
 desable_wlan0mon #Function called
@@ -100,6 +87,40 @@ esac
 shift
 } #Finish case
 
+function Enable_wlan0
+{
+clear
+sleep 0.5
+airmon-ng stop wlan0mon;clear
+service network-manager start
+echo -e "Starting network-manager service..."
+sleep 0.7
+echo -e "Wlan0 interface is available now... \n"
+sleep 1
+        echo -e "\nPress y to back to main menu:"
+            read -n1  bck
+        if [ $bck = "y" ]
+	   then	
+	       banner #function called
+        else
+	  volta=1
+	  left=2     
+	  while [ $volta -lt 4 ]   
+           do 
+		echo -e "\nTo back to main menu press y"
+    		    read -n1 bck             
+		if [ $bck = "y" ]
+	   	   then	
+	       banner #function called
+		else
+		   echo -e "\nLeft you $left attempt."
+		fi 
+            volta=$[ $volta + 1 ]
+	    left=$[ $left -1 ]
+	  done
+        fi
+
+}
 function disable_wlan0mon
 {
 airmon-ng stop wlan0mon
