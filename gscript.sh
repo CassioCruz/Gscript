@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Aucthor Cassio Cruz
 function banner
 {
 clear
@@ -23,9 +23,8 @@ echo -e "\nChoose:"
 case $resp in
 1)  	
 #function called
-
-    changemac;;
-if)
+ changemac;;
+if) 
     clear
     ifconfig 
     echo -e "Press y"
@@ -35,7 +34,8 @@ if)
 	      banner #function called
 	else
 	echo -e "\nThanks to use me"
-       fi	;;
+       fi	
+;;
 6)
 #function called
  StarMon;;
@@ -119,7 +119,6 @@ sleep 1
 	    left=$[ $left -1 ]
 	  done
         fi
-
 }
 function disable_wlan0mon
 {
@@ -152,7 +151,6 @@ echo -e "\nPress y:"
 	    left=$[ $left -1 ]
 	done
         fi
-
 } #finish
 ################
 function interfaces 
@@ -398,14 +396,10 @@ read res
 		RestoreMac
 	elif [ $res = "0" ]
 	     then	
-	      	banner
-	  	
+	      	banner	  	
 	else
-		echo -e "\nDo you have 3 options:"
-  		
-	 
-        fi
-	
+		echo -e "\nDo you have 3 options:"	 
+        fi	
 } #ends here
 #Funcion to start a mode monitor 
 function StarMon 
@@ -419,6 +413,10 @@ function StarMon
  sleep 0.6
   echo "Done"
   echo -e "Interface Wlan0mon is up"
+ back_menu
+}
+function back_menu
+{
  echo -e "\nPress y:"
     read -n1  bck
         if [ $bck = "y" ]
@@ -437,11 +435,10 @@ function StarMon
 		else
 		   echo -e "\nLeft you $left attempt."
 		fi 
-            volta=$[ $volta + 1 ]
-	    left=$[ $left -1 ]
+            volta=$[$volta + 1]
+	    left=$[$left - 1]
 	  done
         fi
-
 }
 ###Main funcion called
 banner
