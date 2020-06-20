@@ -1,45 +1,9 @@
 #!/bin/bash
-#Aucthor Cassio Cruz
-function banner
+#Author Cassio Cruz
+
+
+function Disable_wlan0 
 {
-clear
-	echo -e ""
-	echo -e "         ██      ███████  ██      ███████   by Cassio Cruz"
-	echo -e "         ██      ██   ██  ██      ██   ██ "
-	echo -e "         ██      ██   ██  ██      ███████    "
-	echo -e "         ██      ██   ██  ██      ██   ██  "
-	echo -e "    The  ███████ ███████  ███████ ██   ██   script"
-	echo -e "                                      "
-	echo -e "if) Ifconfig             l0) Exit  "
-	echo -e " 1) Change MAC           l1)  Restore original MAC "
-	echo -e " 2) Disable wlan0         l2)  Restore original MAC "	
-	echo -e " 3) Available interfaces l3)  Restore original MAC "	
-	echo -e " 4) Enable wlan0         l4)  Restore original MAC "
-	echo -e " 5) Disable wlan0mon     l3)  Restore original MAC "	
-	echo -e " 6) Enable wlan0mon      l4)  Restore original MAC "
-	echo -e " 0) Exit "
-echo -e "\nChoose:"
-    read resp
-case $resp in
-1)  	
-#function called
- changemac;;
-if) 
-    clear
-    ifconfig 
-    back_menu #function called	
-;;
-6)
-#function called
- StarMon;;
-l1)
-#function called
- RestoreMac;;
-l2)
-#function called
- interfaces;;
-2)
- #Disable wlan0
 clear
  rfkill unblock wifi &> /dev/null; rfkill unblock all &> /dev/null
  ifconfig wlan0 down;
@@ -48,30 +12,7 @@ clear
  echo -e "Wlan0 interface is disable now... \n"
  sleep 1
  back_menu #function called
-;;
-3) #Available interface
- interfaces;;
-4) #Enable wlan0
- Enable_wlan0 #Function called
-;;
-5) #Disable wlan0mon
-desable_wlan0mon #Function called
-;;
-0) #If u want out
-c=1
-while [ $c -le 4 ] 
-do
-#break
-echo "$c"
- c=$[ $c * 2 ]
-done
-echo -e "\nThanks to use me"
-sleep 1.5;;
-*)
-    banner #Function called
-esac
-shift
-} #Finish case
+}
 
 function Enable_wlan0
 {
@@ -112,8 +53,7 @@ sleep 0.5
 #####FuncionMacchange
 function changemac 
 { clear
-echo -e "      available interfaces "
-echo -e " 1) wlan0 \n 2 wlan0mon \n 3) eth0 \n 0) Menu  "
+All_interfaces #Function called
 read macc
 ## Execute here if you choose wlan0
 if [ $macc = "1" ] 
@@ -232,12 +172,11 @@ fi
 	echo -e "\nWrong optins:"
  back_menu #function called
 } #ends here
-##Restore original MAC
-function RestoreMac 
+
+function RestoreMac  #Restore original MAC
 {
 clear
-echo -e "      AVAILABLE INTERFACES "
-echo -e " 1) wlan0 \n 2) wlan0mon \n 3) eth0 \n 0) Menu  "
+All_interfaces #Function called
 read res
 ## Execute here if you choose wlan0
 	if [ $res = "1" ] 
@@ -324,7 +263,81 @@ function back_menu
 	  done
         fi
 }
+function All_interfaces
+{
+echo -e "      AVAILABLE INTERFACES "
+echo -e " 1) Wlan0 \n 2) Wlan0mon \n 3) Eth0 \n 0) Menu  "
+
+}
+
+function banner
+{
+clear
+	echo -e ""
+	echo -e "         ██      ███████  ██      ███████   by Cassio Cruz"
+	echo -e "         ██      ██   ██  ██      ██   ██ "
+	echo -e "         ██      ██   ██  ██      ███████    "
+	echo -e "         ██      ██   ██  ██      ██   ██  "
+	echo -e "    The  ███████ ███████  ███████ ██   ██   script"
+	echo -e "                                      "
+	echo -e "if) Ifconfig             l0) Exit  "
+	echo -e " 1) Change MAC           l1)  Restore original MAC "
+	echo -e " 2) Disable wlan0         l2)  Restore original MAC "	
+	echo -e " 3) Available interfaces l3)  Restore original MAC "	
+	echo -e " 4) Enable wlan0         l4)  Restore original MAC "
+	echo -e " 5) Disable wlan0mon     l3)  Restore original MAC "	
+	echo -e " 6) Enable wlan0mon      l4)  Restore original MAC "
+	echo -e " 0) Exit "
+echo -e "\nChoose:"
+    read resp
+case $resp in
+1)  	
+#function called
+ changemac;;
+if) 
+    clear
+    ifconfig 
+    back_menu #function called	
+;;
+6)
+#function called
+ StarMon;;
+l1)
+#function Called
+ RestoreMac;;
+l2)
+#function called
+ interfaces;;
+2)
+ #Disable wlan0
+Disable_wlan0 
+;;
+3) #Available interface
+ interfaces;;
+4) #Enable wlan0
+ Enable_wlan0 #Function called
+;;
+5) #Disable wlan0mon
+desable_wlan0mon #Function called
+;;
+0) #If u want out
+c=1
+while [ $c -le 4 ] 
+do
+#break
+echo "$c"
+ c=$[ $c * 2 ]
+done
+echo -e "\nThanks to use me"
+sleep 1.5;;
+*)
+    banner #Function called
+esac
+shift
+} #Finish case
+
 ###Main funcion called
-banner
+# The script start here
+banner 
 
 
