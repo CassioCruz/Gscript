@@ -1,7 +1,6 @@
 #!/bin/bash
 #Author Cassio Cruz
-
-
+#
 function Disable_wlan0 
 {
 clear
@@ -224,7 +223,7 @@ function StarMon
  sleep 0.5
  clear
  airmon-ng check kill
- echo "Your Nic is on mode monitor now" 
+ echo "Your Nic is on monitor mode." 
  sleep 0.5
  airmon-ng start wlan0
  sleep 0.6
@@ -232,7 +231,6 @@ function StarMon
   echo -e "Interface Wlan0mon is up"
  back_menu #function called
 }
-
 #When u want back to main menu
 function back_menu
 {
@@ -242,11 +240,11 @@ function back_menu
 	   then	
 	       banner #function called
         else
-	  volta=1
+	  volta=0
 	  left=2     
-	  while [ $volta -lt 3 ]   
+	  while [ $volta -lt 2 ]   
            do 
-		echo -e "\nTo back to main menu press y"
+		echo -e "\nPress y to back to main menu"
     		    read -n1 bck             
 		if [ $bck = "y" ]
 	   	   then	
@@ -256,8 +254,9 @@ function back_menu
 		fi 
             volta=$[$volta + 1]
 	    left=$[$left - 1]
-		if [ $volta = 2 ]
+		if [ $volta = 1 ]
 		  then
+		    echo "Good bye..."
 		    break
 		fi
 	  done
@@ -267,7 +266,6 @@ function All_interfaces
 {
 echo -e "      AVAILABLE INTERFACES "
 echo -e " 1) Wlan0 \n 2) Wlan0mon \n 3) Eth0 \n 0) Menu  "
-
 }
 
 function banner
@@ -327,9 +325,10 @@ do
 #break
 echo "$c"
  c=$[ $c * 2 ]
+sleep 1
 done
 echo -e "\nThanks to use me"
-sleep 1.5;;
+sleep 1;;
 *)
     banner #Function called
 esac
