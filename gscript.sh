@@ -256,7 +256,7 @@ function back_menu
 	    left=$[$left - 1]
 		if [ $volta = 1 ]
 		  then
-		    echo "Good bye..."
+		    echo "Come soon..."
 		    break
 		fi
 	  done
