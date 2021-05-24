@@ -10,7 +10,7 @@ clear
  echo -e ""
  echo -e "Wlan0 interface is disable now... \n"
  sleep 1
- back_menu #function called
+ back_menu #function called@category:debuggers 'Shell Script'
 }
 
 function Enable_wlan0
@@ -62,11 +62,11 @@ if [ $macc = "1" ]
            if [ $random = "r" ]
 	      then			 
 		sleep 0.5
-		airmon-ng stop wlan0mon
+		airmon-ng stop
 		service network-manager start
-		ifconfig wlan0 down			 
-		macchanger -r wlan0
-		ifconfig wlan0 up
+		ifconfig wlo1 down			 
+		macchanger -r wlo1
+		ifconfig wlo1 up
 		sleep 0.5
 	    elif [ $random = "s" ]
 	       then
@@ -215,7 +215,7 @@ read res
 	else
 		echo -e "\nDo you have 3 options:"	 
         fi	
-} #ends here
+} #ends here function macchanger
 
 #Funcion to start a mode monitor 
 function StarMon 
@@ -262,6 +262,27 @@ function back_menu
 	  done
         fi
 }
+
+function A_inst {
+
+if [ -x /bin/ifstats ]
+	then
+		echo -e " ifstat is installed"
+		banner
+	else
+		echo -e " \n macchanger isn't exist"
+		echo -e "y to install"
+		read hj
+			if [ $hj == "y" ]
+				then
+					sudo apt install macchanger
+				else
+					echo -e "have a good day"
+					banner
+			fi
+				
+fi
+}  # function giboi ends here
 function All_interfaces
 {
 echo -e "      AVAILABLE INTERFACES "
@@ -280,8 +301,8 @@ clear
 	echo -e "                                      "
 	echo -e "if) Ifconfig             l0) Exit  "
 	echo -e " 1) Change MAC           l1)  Restore original MAC "
-	echo -e " 2) Disable wlan0         l2)  Restore original MAC "	
-	echo -e " 3) Available interfaces l3)  Restore original MAC "	
+	echo -e " 2) Disable wlan0         l2)  Interfaces available "	
+	echo -e " 3) Available interfaces l3)  install all soft  "	
 	echo -e " 4) Enable wlan0         l4)  Restore original MAC "
 	echo -e " 5) Disable wlan0mon     l3)  Restore original MAC "	
 	echo -e " 6) Enable wlan0mon      l4)  Restore original MAC "
@@ -291,7 +312,7 @@ echo -e "\nChoose:"
 case $resp in
 1)  	
 #function called
- changemac;;
+ 	changemac;;
 if) 
     clear
     ifconfig 
@@ -306,6 +327,8 @@ l1)
 l2)
 #function called
  interfaces;;
+l3)
+A_inst;;
 2)
  #Disable wlan0
 Disable_wlan0 
