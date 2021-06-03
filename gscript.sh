@@ -27,7 +27,7 @@ sleep 1
 }
 function disable_wlan0mon
 {
-airmon-ng stop wlan0mon
+airmon-ng stop wlo1mon
 service network-manager start
 echo -e "Interface wlan0mon disable...\n"
 sleep 0.5
@@ -181,18 +181,18 @@ read res
 	if [ $res = "1" ] 
 	    then 
 		echo -e "Changing mac address of wlan0"
-	        ifconfig wlan0 down
-	        macchanger -p wlan0
-		ifconfig wlan0 up
+	        ifconfig wlo1 down
+	        macchanger -p wlo1
+		ifconfig wlo1 up
         	echo -e "Done."
 		sleep 1
-		RestoreMac
+		RestoreMac  ##function called
 ## Execute here if you choose wlan0mon 
 	elif [ $res = "2" ] 
 	    then 
 		echo -e "Changing mac address of wlan0mon"
 		airmon-ng check kill
-		airmon-ng start wlan0
+		airmon-ng start wlo1
 		ifconfig wlan0mon down
 	        macchanger -p wlan0mon
 		ifconfig wlan0mon up
@@ -225,7 +225,7 @@ function StarMon
  airmon-ng check kill
  echo "Your Nic is on monitor mode." 
  sleep 0.5
- airmon-ng start wlan0
+ airmon-ng start wlo1
  sleep 0.6
   echo "Done"
   echo -e "Interface Wlan0mon is up"
@@ -339,11 +339,11 @@ Disable_wlan0
  Enable_wlan0 #Function called
 ;;
 5) #Disable wlan0mon
-desable_wlan0mon #Function called
+disable_wlan0mon #Function called
 ;;
 0) #If u want out
 c=1
-while [ $c -le 4 ] 
+while [ $c -le 3 ] 
 do
 #break
 echo "$c"
