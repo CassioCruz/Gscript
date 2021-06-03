@@ -9,7 +9,6 @@ clear
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 if [[ "$DIR" != "/root/gscript" ]]
 then
-	#echo -e "You didn't follow the github's simple install instructions.I will try to do it for you..."
 	sleep 2
 	if [[ -d /root/gscript ]]
 	then
