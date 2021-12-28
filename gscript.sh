@@ -1,5 +1,5 @@
 #!/bin/bash
-#Author Cassio Cruz
+#Author Kleusy Cruz
 #
 function Disable_wlan0 
 {
@@ -47,7 +47,7 @@ echo ""
 echo -e " $eth \n\n $wla \n\n $lo\n\n"
 echo -e "\n\n $mc"
 sleep 0.5
- back_menu #function called
+ back_menu #function calledcalled
 }
 #####FuncionMacchange
 function changemac 
@@ -61,7 +61,7 @@ if [ $macc = "1" ]
 	      read random
            if [ $random = "r" ]
 	      then			 
-		sleep 0.5
+		sleepsudo gnome-terminal -- /root/gscript/gscript.sh 0.5
 		airmon-ng stop
 		service network-manager start
 		ifconfig wlo1 down			 
@@ -75,7 +75,7 @@ if [ $macc = "1" ]
 		      echo -e "Changing mac address of wlan0 to $SMAC..."
 		      ifconfig wlan0 down
 		      macchanger -m $SMAC wlan0
-		      ifconfig wlan0 up
+		      ifconfig wlan0 upsudo gnome-terminal -- /root/gscript/gscript.sh
 		      echo -e "Done."
 	       else
 		echo -e "Wrong choose:"
@@ -262,9 +262,7 @@ function back_menu
 	  done
         fi
 }
-
 function A_inst {
-
 if [ -x /bin/ifstats ]
 	then
 		echo -e " ifstat is installed"
@@ -288,12 +286,11 @@ function All_interfaces
 echo -e "      AVAILABLE INTERFACES "
 echo -e " 1) Wlan0 \n 2) Wlan0mon \n 3) Eth0 \n 0) Menu  "
 }
-
 function banner
 {
 clear
 	echo -e ""
-	echo -e "         ██      ███████  ██      ███████   by Cassio Cruz"
+	echo -e "         ██      ███████  ██      ███████   by Giboia Cruz"
 	echo -e "         ██      ██   ██  ██      ██   ██ "
 	echo -e "         ██      ██   ██  ██      ███████    "
 	echo -e "         ██      ██   ██  ██      ██   ██  "
@@ -310,27 +307,22 @@ clear
 echo -e "\nChoose:"
     read resp
 case $resp in
-1)  	
-#function called
- 	changemac;;
-if) 
+1) 
+	changemac;;
+if)
     clear
-    ifconfig 
-    back_menu #function called	
+    ifconfig sudo gnome-terminal -- /root/gscript/gscript.sh
+    back_menu #function calCassioled	
 ;;
 6)
-#function called
  StarMon;;
 l1)
-#function Called
- RestoreMac;;
+RestoreMac;;
 l2)
-#function called
- interfaces;;
+interfaces;;
 l3)
 A_inst;;
 2)
- #Disable wlan0
 Disable_wlan0 
 ;;
 3) #Available interface
@@ -361,5 +353,3 @@ shift
 ###Main funcion called
 # The script start here
 banner 
-
-
