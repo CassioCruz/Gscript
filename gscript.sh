@@ -1,6 +1,54 @@
 #!/bin/bash
 #Author Kleusy Cruz
-#
+#Facebook Kleusy Cruz
+#Linkdlin Kleusy Cruz
+#Email cassio.sousa@outlook.pt
+#Number +244 924423712
+
+		####COLORS FOR BANNER###### 
+#yellow start 
+	YS="\e[1;33m"
+#blue start 
+	BS="\e[0;34m"
+#color end
+	CE="\e[0m"
+#black start
+	BLS="\e[0;30m"
+#dark gray start
+	DGYS="\e[1;30m"
+#light blue start
+	LBS="\e[1;34m"
+#light green start
+	LGNS="\e[1;32m"
+#light cyan start
+	LCYS="\e[1;36m"
+#light red start
+	DRS="\e[0;31m"
+#light purple start
+	LPS="\e[1;35m"
+#light gray start
+	LGYS="\e[0;37m"
+#white start
+	WHS="\e[1;37m"
+ 	###########################
+	if [[ -d /root/settings ]]
+		then
+			clear
+		else
+			GPATH="/root/gscript"
+			export GPATH
+			mkdir $GPATH/settings/
+			touch logocolor.txt
+			clear
+	fi
+#setting custom color for logo
+	if [[ -f "$GPATH"/settings/logocolor.txt ]]
+	then
+		read COL < "$GPATH"/settings/logocolor.txt
+	else
+		COL="$RS"
+	fi
+#################
 function Disable_wlan0 
 {
 clear
