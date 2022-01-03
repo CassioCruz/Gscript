@@ -290,19 +290,15 @@ function banner
 {
 clear
 	echo -e ""
-	echo -e "         ██      ███████  ██      ███████   by Giboia Cruz"
-	echo -e "         ██      ██   ██  ██      ██   ██ "
-	echo -e "         ██      ██   ██  ██      ███████    "
-	echo -e "         ██      ██   ██  ██      ██   ██  "
-	echo -e "    The  ███████ ███████  ███████ ██   ██   script"
-	echo -e "                                      "
+	echo -e "$COL         ██      ███████  ██      ███████ $CE  $COL by Kleusy Cruz $CE"
+	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE"
+	echo -e "$COL         ██      ██   ██  ██      ███████ $CE   "
+	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE "
+	echo -e "$COL    The  ███████ ███████  ███████ ██   ██   script $CE\n"
 	echo -e "if) Ifconfig             l0) Exit  "
 	echo -e " 1) Change MAC           l1)  Restore original MAC "
 	echo -e " 2) Disable wlan0         l2)  Interfaces available "	
 	echo -e " 3) Available interfaces l3)  install all soft  "	
-	echo -e " 4) Enable wlan0         l4)  Restore original MAC "
-	echo -e " 5) Disable wlan0mon     l3)  Restore original MAC "	
-	echo -e " 6) Enable wlan0mon      l4)  Restore original MAC "
 	echo -e " 0) Exit "
 echo -e "\nChoose:"
     read resp
@@ -315,41 +311,40 @@ if)
     back_menu #function calCassioled	
 ;;
 6)
- StarMon;;
+	StarMon;;
 l1)
-RestoreMac;;
+	estoreMac;;
 l2)
-interfaces;;
+	interfaces;;
 l3)
-A_inst;;
+	A_inst;;
 2)
-Disable_wlan0 
+	Disable_wlan0 
 ;;
 3) #Available interface
- interfaces;;
+	interfaces;;
 4) #Enable wlan0
- Enable_wlan0 #Function called
+	nable_wlan0 #Function called
 ;;
 5) #Disable wlan0mon
-disable_wlan0mon #Function called
+	disable_wlan0mon #Function called
 ;;
 0) #If u want out
 c=1
-while [ $c -le 3 ] 
-do
-#break
-echo "$c"
- c=$[ $c * 2 ]
-sleep 1
-done
-echo -e "\nThanks to use me"
-sleep 1;;
+	while [ $c -le 3 ] 
+	do
+		#break
+		echo "$c"
+		c=$[ $c * 2 ]
+		sleep 1
+	done
+	echo -e "\nThanks to use me"
+	sleep 1;;
 *)
     banner #Function called
 esac
 shift
 } #Finish case
-
 ###Main funcion called
 # The script start here
 banner 
