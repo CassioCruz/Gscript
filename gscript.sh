@@ -46,95 +46,95 @@
 	then
 		read COL < "$GPATH"/settings/logocolor.txt
 	else
-		COL="$RS"
+		COL="$DRS"
 	fi
 #################
 function Disable_wlan0 
 {
-clear
- rfkill unblock wifi &> /dev/null; rfkill unblock all &> /dev/null
- ifconfig wlan0 down;
- sleep 0.5
- echo -e ""
- echo -e "Wlan0 interface is disable now... \n"
- sleep 1
- back_menu #function called@category:debuggers 'Shell Script'
+	clear
+	rfkill unblock wifi &> /dev/null; rfkill unblock all &> /dev/null
+	ifconfig wlan0 down;
+	sleep 0.5
+	echo -e ""
+	echo -e "Wlan0 interface is disable now... \n"
+	sleep 1
+	back_menu #function called@category:debuggers 'Shell Script'
 }
 
 function Enable_wlan0
 {
-clear
-sleep 0.5
-airmon-ng stop wlan0mon;clear
-service network-manager start
-echo -e "Starting network-manager service..."
-sleep 0.7
-echo -e "Wlan0 interface is available now... \n"
-sleep 1
- back_menu #function called
+	clear
+	sleep 0.5
+	airmon-ng stop wlan0mon;clear
+	service network-manager start
+	echo -e "Starting network-manager service..."
+	sleep 0.7
+	echo -e "Wlan0 interface is available now... \n"
+	sleep 1
+	back_menu #function called
 }
 function disable_wlan0mon
 {
-airmon-ng stop wlo1mon
-service network-manager start
-echo -e "Interface wlan0mon disable...\n"
-sleep 0.5
-echo -e "Interface wlan0 up..."
-sleep 0.5 
-echo -e "Done..."
- back_menu #function called
+	airmon-ng stop wlo1mon
+	service network-manager start
+	echo -e "Interface wlan0mon disable...\n"
+	sleep 0.5
+	echo -e "Interface wlan0 up..."
+	sleep 0.5 
+	echo -e "Done..."
+	back_menu #function called
 } #finish
 ################
 function interfaces 
 {
-echo "        Cards ON"
-wla=$(ifconfig | cut -d " " -f1 | grep -a "wlan0") #show wlan0interface
-eth=$(ifconfig | cut -d " " -f1 | grep -a "eth0") #show eth0interface
-lo=$(ifconfig | cut -d " " -f1 | grep -a "lo")  #show loopbackinterface
-echo ""
-echo -e " $eth \n\n $wla \n\n $lo\n\n"
-echo -e "\n\n $mc"
-sleep 0.5
- back_menu #function calledcalled
+	echo "        Cards ON"
+	wla=$(ifconfig | cut -d " " -f1 | grep -a "wlan0") #show wlan0interface
+	eth=$(ifconfig | cut -d " " -f1 | grep -a "eth0") #show eth0interface
+	lo=$(ifconfig | cut -d " " -f1 | grep -a "lo")  #show loopbackinterface
+	echo ""
+	echo -e " $eth \n\n $wla \n\n $lo\n\n"
+	echo -e "\n\n $mc"
+	sleep 0.5
+	back_menu #function calledcalled
 }
 #####FuncionMacchange
 function changemac 
-{ clear
-All_interfaces #Function called
-read macc
-## Execute here if you choose wlan0
-if [ $macc = "1" ] 
-	then 
-	   echo -e "How do you like to change your MAcAdd random(r) or static(s) "
-	      read random
-           if [ $random = "r" ]
-	      then			 
-		sleepsudo gnome-terminal -- /root/gscript/gscript.sh 0.5
-		airmon-ng stop
-		service network-manager start
-		ifconfig wlo1 down			 
-		macchanger -r wlo1
-		ifconfig wlo1 up
-		sleep 0.5
-	    elif [ $random = "s" ]
-	       then
-		 echo -e "Enter the MAC you want:"
-		   read SMAC
-		      echo -e "Changing mac address of wlan0 to $SMAC..."
-		      ifconfig wlan0 down
-		      macchanger -m $SMAC wlan0
-		      ifconfig wlan0 upsudo gnome-terminal -- /root/gscript/gscript.sh
-		      echo -e "Done."
-	       else
-		echo -e "Wrong choose:"
-		echo -e "Try (r) or (s)"
-		sleep 1.5
-		echo -e "Ok lets try again waiting..."
-		sleep 1.5		
-		changemac
-	     fi
-	    #function called
- 	       back_menu	
+{	clear
+	All_interfaces #Function called
+	read macc
+	## Execute here if you choose wlan0
+	if [ $macc = "1" ] 
+		then 
+		echo -e "How do you like to change your MAcAdd random(r) or static(s) "
+			read random
+			if [ $random = "r" ]
+			then			 
+			sleepsudo gnome-terminal -- /root/gscript/gscript.sh 0.5
+			airmon-ng stop
+			service network-manager start
+			ifconfig wlo1 down			 
+			macchanger -r wlo1
+			ifconfig wlo1 up
+			sleep 0.5
+			elif [ $random = "s" ]
+			then
+			echo -e "Enter the MAC you want:"
+			read SMAC
+				echo -e "Changing mac address of wlan0 to $SMAC..."
+				ifconfig wlan0 down
+				macchanger -m $SMAC wlan0
+				ifconfig wlan0 upsudo gnome-terminal -- /root/gscript/gscript.sh
+				echo -e "Done."
+			else
+			echo -e "Wrong choose:"
+			echo -e "Try (r) or (s)"
+			sleep 1.5
+			echo -e "Ok lets try again waiting..."
+			sleep 1.5		
+			changemac
+			fi
+			#function called
+			back_menu	
 	fi
 ## Execute here if you choose wlan0mon 
 if [ $macc = "2" ]
@@ -178,107 +178,105 @@ if [ $macc = "2" ]
 	          fi	
 		### execute it when u imput wrong options
 	echo -e "\nWrong:"
- back_menu #function called
+	back_menu #function called
 fi
 ## Execute here if you choose etho0
-if [ $macc = "3" ] 
-	    then 
-		echo -e "How do you like to change your MAcAdd random(r) or static(s) "
-		  read random
-		   if [ $random = "r" ]
-		       then
-			 ifconfig eth0 down
-			 sleep 0.5
-			 macchanger -r eth0
-			 ifconfig eth0 up
-			 echo -e "Done."
-			  sleep 0.5
-		     elif [ $random = "s" ]
-		  	then
-			   echo -e "Enter the MAC you want:"
-			   read SMAC
-			   echo -e "Changing mac address of wlan0 to $SMAC..."
-			   ifconfig eth0 down
-			   macchanger -m $SMAC eth0
-			   ifconfig eth0 up
-			 echo -e "Done."
-else
-	echo -e "Wrong choose:"
-	echo -e "Try (r) or (s)"
-	sleep 0.5
-	echo -e "Ok lets try again waiting..."
-	sleep 1		
-	changemac		      
-fi 	  
+	if [ $macc = "3" ] 
+			then 
+			echo -e "How do you like to change your MAcAdd random(r) or static(s) "
+			read random
+			if [ $random = "r" ]
+				then
+				ifconfig eth0 down
+				sleep 0.5
+				macchanger -r eth0
+				ifconfig eth0 up
+				echo -e "Done."
+				sleep 0.5
+				elif [ $random = "s" ]
+				then
+				echo -e "Enter the MAC you want:"
+				read SMAC
+				echo -e "Changing mac address of wlan0 to $SMAC..."
+				ifconfig eth0 down
+				macchanger -m $SMAC eth0
+				ifconfig eth0 up
+				echo -e "Done."
+	else
+		echo -e "Wrong choose:"
+		echo -e "Try (r) or (s)"
+		sleep 0.5
+		echo -e "Ok lets try again waiting..."
+		sleep 1		
+		changemac		      
+	fi 	  
 	   fi
-if [ $macc = "0" ]
-    then	
-       banner #Function called
-fi
- ### execute it when u imput wrong options
+	if [ $macc = "0" ]
+		then	
+		banner #Function called
+	fi
+### execute it when u imput wrong options
 	echo -e "\nWrong optins:"
- back_menu #function called
+	back_menu #function called
 } #ends here
 
-function RestoreMac  #Restore original MAC
-{
-clear
-All_interfaces #Function called
-read res
-## Execute here if you choose wlan0
-	if [ $res = "1" ] 
-	    then 
-		echo -e "Changing mac address of wlan0"
-	        ifconfig wlo1 down
-	        macchanger -p wlo1
-		ifconfig wlo1 up
-        	echo -e "Done."
-		sleep 1
-		RestoreMac  ##function called
-## Execute here if you choose wlan0mon 
-	elif [ $res = "2" ] 
-	    then 
-		echo -e "Changing mac address of wlan0mon"
-		airmon-ng check kill
-		airmon-ng start wlo1
-		ifconfig wlan0mon down
-	        macchanger -p wlan0mon
-		ifconfig wlan0mon up
-        	echo -e "Done..."
-		sleep 1
-		RestoreMac
-## Execute here if you choose etho0
-	elif [ $res = "3" ]
-	     then 
-	        echo -e "Changing mac address of eth0..."
-	        ifconfig eth0 down
-	        macchanger -p eth0
-		ifconfig eth0 up
-        	echo -e "Done."
-		sleep 1
-		RestoreMac
-	elif [ $res = "0" ]
-	     then	
-	      	banner	  	
-	else
-		echo -e "\nDo you have 3 options:"	 
-        fi	
-} #ends here function macchanger
+function RestoreMac{  #Restore original MAC
+	clear
+	All_interfaces #Function called
+	read res
+	## Execute here if you choose wlan0
+		if [ $res = "1" ] 
+			then 
+			echo -e "Changing mac address of wlan0"
+				ifconfig wlo1 down
+				macchanger -p wlo1
+			ifconfig wlo1 up
+				echo -e "Done."
+			sleep 1
+			RestoreMac  ##function called
+	## Execute here if you choose wlan0mon 
+		elif [ $res = "2" ] 
+			then 
+			echo -e "Changing mac address of wlan0mon"
+			airmon-ng check kill
+			airmon-ng start wlo1
+			ifconfig wlan0mon down
+				macchanger -p wlan0mon
+			ifconfig wlan0mon up
+				echo -e "Done..."
+			sleep 1
+			RestoreMac
+	## Execute here if you choose etho0
+		elif [ $res = "3" ]
+			then 
+				echo -e "Changing mac address of eth0..."
+				ifconfig eth0 down
+				macchanger -p eth0
+			ifconfig eth0 up
+				echo -e "Done."
+			sleep 1
+			RestoreMac
+		elif [ $res = "0" ]
+			then	
+				banner	  	
+		else
+			echo -e "\nDo you have 3 options:"	 
+			fi	
+	} #ends here function macchanger
 
 #Funcion to start a mode monitor 
-function StarMon 
-{
- sleep 0.5
- clear
- airmon-ng check kill
- echo "Your Nic is on monitor mode." 
- sleep 0.5
- airmon-ng start wlo1
- sleep 0.6
-  echo "Done"
-  echo -e "Interface Wlan0mon is up"
- back_menu #function called
-}
+function StarMon {
+	sleep 0.5
+	clear
+	airmon-ng check kill
+	echo "Your Nic is on monitor mode." 
+	sleep 0.5
+	airmon-ng start wlo1
+	sleep 0.6
+	echo "Done"
+	echo -e "Interface Wlan0mon is up"
+	back_menu #function called
+	}
 #When u want back to main menu
 function back_menu
 {
@@ -311,28 +309,28 @@ function back_menu
         fi
 }
 function A_inst {
-if [ -x /bin/ifstats ]
-	then
-		echo -e " ifstat is installed"
-		banner
-	else
-		echo -e " \n macchanger isn't exist"
-		echo -e "y to install"
-		read hj
-			if [ $hj == "y" ]
-				then
-					sudo apt install macchanger
-				else
-					echo -e "have a good day"
-					banner
-			fi
-				
-fi
+	if [ -x /bin/ifstats ]
+		then
+			echo -e " ifstat is installed"
+			banner
+		else
+			echo -e " \n macchanger isn't exist"
+			echo -e "y to install"
+			read hj
+				if [ $hj == "y" ]
+					then
+						sudo apt install macchanger
+					else
+						echo -e "have a good day"
+						banner
+				fi
+					
+	fi
 }  # function giboi ends here
 function All_interfaces
 {
-echo -e "      AVAILABLE INTERFACES "
-echo -e " 1) Wlan0 \n 2) Wlan0mon \n 3) Eth0 \n 0) Menu  "
+	echo -e "      AVAILABLE INTERFACES "
+	echo -e " 1) Wlan0 \n 2) Wlan0mon \n 3) Eth0 \n 0) Menu  "
 }
 function banner
 {
@@ -348,14 +346,14 @@ clear
 	echo -e ""$YS" 2) "$CE"Disable wlan0         "$YS"l2)"$CE"  Interfaces available"	
 	echo -e ""$YS" 3d)"$CE" Available interfaces "$YS"l3)"$CE"  install all soft  "	
 	echo -e " 0) Exit "
-echo -e "\nChoose:"
-    read resp
+	echo -e "$COL\nChoose:$CE"
+    	read resp
 case $resp in
 1) 
 	changemac;;
 if)
     clear
-    ifconfig sudo gnome-terminal -- /root/gscript/gscript.sh
+    ifconfig 
     back_menu #function calCassioled	
 ;;
 6)
@@ -395,4 +393,4 @@ shift
 } #Finish case
 ###Main funcion called
 # The script start here
-banner 
+	banner 
