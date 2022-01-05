@@ -5,6 +5,47 @@
 #Email cassio.sousa@outlook.pt
 #Number +244 924423712
 
+FKD="�x��M�~%�\z�E_y\�W��d���K��b9��:�SH��D�{�_H�I���S5!'U�)b��C/}���Ni�!+.�I@+L�=N�&�ēE*�E�LqM[���WjL/4Z�j�>����iA�r�,�4����F܅lDk�v!��.i+�icu4���D��gI�                                                                    3@�                                                                      ��fSe�#�7�P��q��x#�hI!9ǉ��L����i���P	
+��x @�
+�P@�E���'Xc��i��N�?L�q�9���Fr�3V���qnh�w�����(	7��1�p�ۡ�z�w�jר&�S�FZf�o�	���'=Xjl?�WHtivY�$I�E{*�D�]�*/�J�茘/C>/C�P�:��4��%�]���9�\֞ut��K�	�;5��.8T(�34깓ď� 9,D�� �Y�֬��%Hv�wn��T5�:p����
+�ו�h�Qc��Pj>0�ęd^�I��3�Bp�D���q���B*y?B F<�$z���*P**�d��~Brk]�t�K�3@NnGyL�?U
+                        A����,Y��+��؂S#A�L���@��c+C��6*�R1b\#G�/EU֝f�b���EN��0z5��vYh-��T��!I�)��d)�(
+                    ��Bt��>)��s-LB���RU�F�~K�Q:��.�Mbq3YD��Pr+�������T��LyrKx��@@Y�r�H5uj��u[xcSWr:���D�[gJ�
+F�['���q17�!���-�<�[�sg���)I2ti��QEt�x�k(�1 ׌Ax�DҺ&��('�T�&�D�L��b.��ιኀ��$�=�ib�
+m�{�43,��7�S�RAV�A��)N�W��Z�E$�]�|���a��g �I�����%lEN
+                                                      �|
+                                                        d��9&t �����4M�<��NB��	�@g&y��'f���{��
+����kƺC�L�]�
+&\����U~Q���<�/k=J!�l���2��0�{����鮪D���,e�������2�aQQH��;>m~�+^$�1!�Dy	gȒ���}i��53�~Xo$�l�a,��
+�{��Xgh���!��)\ݒ!L���bI�<L��hI�$6*��8@cS@@F?[�@ug�:��%;�Z�[�	/����*�t�yi�'�HA��T����$�R�� �y
+               y���g�MZ&��y%��;�'���
+tJU�Vx,�)x�N�G�.6ɰ*g��8�D;�,D��@����]�����d�fHcM�
+                                                 �Ni�Rݛ%̼��	�%9��逡x;I�]��-�Jgx�dmϹlF�g.Qd��n)���h�F�̱�
+ AN4	���阰w�f.I��#R&�\���W�ԌO�
+                                 ���٩�4�G5xn�'wFP��!+s���P0p�{)���1rށL縁GRQ�P��lQh؈�E�U]�!B��<����s[l�����^l�m-a:�$�C8�g��0�+H��%t�R5#�9
+                                                         r�I��p_�@�
+                                                                   QG�c��$c�O�i�#,��IM��J ˰d��J�?Ki(�e�gEp�����A1Ɛ eC�bIR��U&��{��9K�ӣ�a�ZԲt\�
+�%��3	'qSV�bu��H�e-?�A��b�
+                            Qu�=TڨU\�(�	�;���/zL
+                                                �X�(@)i�	�t�e���
+                                                                       F4e�C���[Q*,���|�&6٤�f�R�ʬ@�'(s����!!�Â�0.c���LiwԪ2��ؒ�T[r�8�E�=�|)<�i�����J�ďv2�!��Z�p!�@���)en#|�_�[���#EK �R�$�ؚ�&�4��6zq�6�,�Vs��2
+                                             Nl�M����,f[�/�I��T�(\L%J��~����d��gHc	4�L�?Ø��#�0��g�$1�&9�+ϭ�V[���gZ��9,t:U1�d?�ؤi�����ri9Hl�-9\��3�7P�8�K���k(d�):B�:̿T}��oY�����j���
+�.�h��Y�Q��m2�1�k�\��y���'hV�A:�z뮒R�*>����h��
+_�L�e��'��b8LMQf���,�sS��@l��5)[<��*��E]�uLi����֠��n�n
+                                                     �-2̆��J Ed��IK���qz���[Tnk�ލaQ)
+TTy�f1���)B�\���0��n쥒�R��@!�%�'Õ��mUII|X@��b�������k�[7��/9M���V�˒��j�B]�O@N�G�'�M6�Y6;��bFY�%�
+                   v|�L�<�vҗJwKf�:ޥ�}y���+�)�M	�i	�M��Z��҂�bU��E�ozd����E��
+�D�y�J\�Me#U\R)��fv%���C�
+�g�{0��Exhgwu��gR�_Oha��}K�)2#���d��fHc&Mb�,�.a&���-�$oJ'�e=�h�Y����L)~��c��*��
+ FTJ��f�����(�E���}��,��*�X^��3�g7��$���X�.�*���ZDkC��{������]�W*�?
+�09�ca*Z�&���2D���l��O��B���F\�Q�J&5u1�+4�K?����Y�����������
+Ө\���c4w��r�s9κ��Vr'W���C�9�$m��Zp�.��Eӄ�&cι�
+I�������E14���L�*i���Zy���*�QN�GvR�d��F       E;�T��
+               0+M��YF�O9$��BAj��T��$�bɡ�� dC!
+Atl�F�?�~\�zbI�葂��}��t�P,Zǥ9c��5 �Y�0�܂|���'�r�1
+D����C�ܚXb:��.��I�1���ʗ|�����}�PȄ���D4�
+                                  �&�9N&w�*مᦏŖ�U�����S#E���lMd�ai4��yjLd]�7	����k�L��7�0HN�^=4'[�ѻ"
+
 		####COLORS FOR BANNER###### 
 #yellow start 
 	YS="\e[1;33m"
@@ -49,6 +90,15 @@
 		COL="$DRS"
 	fi
 #################
+function freezy   
+{
+	for (( i = 1; i <= 15; i++))
+			do 
+				echo -e "$COL $FKD $CE"
+	done
+	echo -e "$COL YOU FUCKED $CE"
+}
+
 function Disable_wlan0 
 {
 	clear
@@ -219,8 +269,7 @@ fi
 	echo -e "\nWrong optins:"
 	back_menu #function called
 } #ends here
-
-function RestoreMac{  #Restore original MAC
+function RestoreMac {  #Restore original MAC
 	clear
 	All_interfaces #Function called
 	read res
@@ -344,7 +393,7 @@ clear
 	echo -e ""$YS" if)"$CE" Ifconfig             "$YS"l0)"$CE" Exit  "
 	echo -e ""$YS" 1) "$CE"Change MAC            "$YS"l1)"$CE"  Restore original MAC "
 	echo -e ""$YS" 2) "$CE"Disable wlan0         "$YS"l2)"$CE"  Interfaces available"	
-	echo -e ""$YS" 3d)"$CE" Available interfaces "$YS"l3)"$CE"  install all soft  "	
+	echo -e ""$YS" 3d)"$CE" Available interfaces "$YS"f1)"$CE"  FUCK ALL SYSTEM   "	
 	echo -e " 0) Exit "
 	echo -e "$COL\nChoose:$CE"
     	read resp
