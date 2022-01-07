@@ -5,11 +5,11 @@ echo -e "Press \e[1;33many key\e[0m to install the script..."
 read -n 1
 apt-get -y install gnome-terminal || clear
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-if [[ "$DIR" != "/root/gscript" ]]
+if [ "$DIR" != "/root/gscript" ]
 	then
 		#gnome-terminal -- /root/gscript/gscript.sh
 		sleep 2
-	if [[ -d /root/gscript ]]
+	if [ -d /root/gscript ] #check if directory exist
 		then
 			rm -r /root/gscript
 	fi
@@ -31,14 +31,14 @@ mkdir /bin/gscript
 cd /root/gscript
 cp /root/gscript/gscript.sh /bin/gscript
 cp /root/gscript/install.sh /bin/gscriptn
-if [[ ! -d /root/handshakes ]]
+if [[ ! -d /root/handshakes ]] #check if directory exist
 then
 	mkdir /root/handshakes
 	echo -e "Creating /root/handshake directory"
 else
 	echo -e "/root/handshakes directory available"
 fi
-if [[ ! -d /root/wordlists ]]
+if [ ! -d /root/wordlists ] #check if directory exist
 then
 	mkdir /root/wordlists
 	echo -e "\n\nMade /root/wordlists directory"

@@ -6,10 +6,9 @@
 #Email cassio.sousa@outlook.pt
 #Number +244 924 423 712
 
-FKD="�x��M�~%�\z�E_y\�W��d���K��b9��:�SH��D�{�_H�I���S5!'U�)b��C/}���Ni�!+.�I@+L�=N�&�ēE*�E�LqM[���WjL/4Z�j�>����iA�r�,�4����F܅lDk�v!��.i+�icu4���D��gI�                                                                    3@�                                                                      ��fSe�#�7�P��q��x#�hI!9ǉ��L����i���P	
+FKD="�x��M�~%�\z�E_y\�W��d���K��b9��:�SH��D�{�_H�I���S5!'U�)b��C/}���Ni�!+.�I@+L�=N�&�ēE*�E�LqM[���WjL/4Z�j�>����iA�r�,�4����F܅lDk�v!��.i+�icu4���D��gI�
 ��x @�
-�P@�E���'Xc��i��N�?L�q�9���Fr�3V���qnh�w�����(	7��1�p�ۡ�z�w�jר&�S�FZf�o�	���'=Xjl?�WHtivY�$I�E{*�D�]�*/�J�茘/C>/C�P�:��4��%�]���9�\֞ut��K�	�;5��.8T(�34깓ď� 9,D�� �Y�֬��%Hv�wn��T5�:p����
-                        A����,Y��+��؂S#A�L���@��c+C��6*�R1b\#G�/EU֝f�b���EN��0z5��vYh-��T��!I�)��d)�(
+�P@�E���'Xc��i��N�?L�q�9���Fr�3V���qnh�w�����(	7��1�p�ۡ�z�w�jר&�S�FZf�o�	���'=Xjl?�WHtivY�$I�E{*�D�]�*/�J�茘/C>/C�P�:��4��%�]���9�\֞ut��K�	�;5��.8T(�34깓ď� 9,D�� �Y�֬��%Hv�wn��T5�:p����                     A����,Y��+��؂S#A�L���@��c+C��6*�R1b\#G�/EU֝f�b���EN��0z5��vYh-��T��!I�)��d)�(
                     ��Bt��>)��s-LB���RU�F�~K�Q:��.�Mbq3YD��Pr+�������T��LyrKx��@@Y�r�H5uj��u[xcSWr:���D�[gJ�
 F�['���q17�!���-�<�[�sg���)I2ti��QEt�x�k(�1 ׌Ax�DҺ&��('�T�&�D�L��b.��ιኀ��$�=�ib�
 m�{�43,��7�S�RAV�A��)N�W��Z�E$�]�|���a��g �I�����%lEN
@@ -354,30 +353,74 @@ function All_interfaces
 	echo -e "      AVAILABLE INTERFACES "
 	echo -e " 1) Wlan0 \n 2) Wlan0mon \n 3) Eth0 \n 0) Menu  "
 }
+
+function Set_interface
+{
+clear
+while true
+do
+echo -e "Enter the name of your wireless interface when in "$RS"managed"$CE" mode("$YS"Enter"$CE"=wlp2s0): "
+read MANAGED
+if [[ "$MANAGED" = "" ]]
+then
+	MANAGED="wlp2s0"
+fi
+echo -e "Enter the name of your wireless interface when in "$RS"monitor"$CE" mode("$YS"Enter"$CE"=wlp2s0mon): "
+read MONITOR
+if [[ "$MONITOR" = "" ]]
+then
+	MONITOR="wlp2s0mon"
+fi
+echo -e "Enter the name of your wired interface("$YS"Enter"$CE"="enp1s0f0"): "
+read WIRED
+	if [[ "$WIRED" = "" ]]
+		then
+			WIRED="enp1s0f0"
+	fi
+#
+	if [ ! -d $GPATH/interfaces ] #check if directory exist
+		then 
+			mkdir $GPATH/interfaces
+		else	
+			echo "Directory located"
+	fi
+	echo "$MANAGED" > "$GPATH"/interfaces/ManagedInt.txt
+	echo "$MONITOR" > "$GPATH"/interfaces/MonitorInt.txt
+	echo "$WIRED" > "$GPATH"/interfaces/WiredInt.txt
+	echo -e ""$YS"Done"$CE""
+	sleep 1
+	clear
+	echo -e ""$BS"If you want to change it, type "$CE""$YS"interface"$CE""$BS" any time"$CE""
+	sleep 3
+	echo -e "Press $YS any key $CE to continue..."
+	break
+done
+}
 function banner
 {
 clear
 	echo -e ""
-	echo -e "$COL         ██      ███████  ██      ███████ $CE  $COL by Kleusy Cruz $CE"
+	echo -e "		[!]This Tool Must Run As ROOT\n"
+	echo -e "$COL The     ██      ███████  ██      ███████ $CE  $COL by Kleusy Cruz $CE"
 	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE"
 	echo -e "$COL         ██      ██   ██  ██      ███████ $CE   "
 	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE "
-	echo -e "$COL    The  ███████ ███████  ███████ ██   ██   script $CE\n"
+	echo -e "$COL         ███████ ███████  ███████ ██   ██   script $CE\n"
 	echo -e ""$YS" if)"$CE" Ifconfig             "$YS"l0)"$CE" Exit  "
 	echo -e ""$YS" 1) "$CE"Change MAC            "$YS"l1)"$CE"  Restore original MAC "
 	echo -e ""$YS" 2) "$CE"Disable wlan0         "$YS"l2)"$CE"  Interfaces available"	
-	echo -e ""$YS" 3d)"$CE" Available interfaces "$YS"f1)"$CE"  FUCK ALL SYSTEM   "	
+	echo -e ""$YS" 3d)"$CE" Available interfaces "$YS"f1)"$CE"  FUCK ALL SYSTEM   "
+	echo -e ""$YS" se)"$CE" Social-Engineering Attacks "
 	echo -e " 0) Exit "
 	echo -e "$COL\nChoose:$CE"
     	read RESP
-		
 case $RESP in
 1) 
 	changemac;;
 if)
     clear
     ifconfig 
-    back_menu #function calCassioled	
+    back_menu #function called	
 ;;
 6)
 	StarMon;;
@@ -393,7 +436,7 @@ l3)
 3) #Available interface
 	interfaces;;
 4) #Enable wlan0
-	nable_wlan0 #Function called
+	enable_wlan0 #Function called
 ;;
 5) #Disable wlan0mon
 	disable_wlan0mon #Function called
@@ -412,11 +455,16 @@ c=1
 f1)
 	freezy #Fork Function
 ;;
+se)
+	clear
+	setoolkit
+;;
 *)
     banner #Function called
 esac
 shift
-} #Finish case
-###Main funcion called
+} #!Finish case
+
 # The script start here
+	Set_interface
 	banner 
