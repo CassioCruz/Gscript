@@ -406,11 +406,12 @@ clear
 	echo -e "$COL         ██      ██   ██  ██      ███████ $CE   "
 	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE "
 	echo -e "$COL         ███████ ███████  ███████ ██   ██   script $CE\n"
-	echo -e ""$YS" if)"$CE" Ifconfig             "$YS"l0)"$CE" Exit  "
-	echo -e ""$YS" 1) "$CE"Change MAC            "$YS"l1)"$CE"  Restore original MAC "
-	echo -e ""$YS" 2) "$CE"Disable wlan0         "$YS"l2)"$CE"  Interfaces available"	
-	echo -e ""$YS" 3d)"$CE" Available interfaces "$YS"f1)"$CE"  FUCK ALL SYSTEM   "
-	echo -e ""$YS" se)"$CE" Social-Engineering Attacks "
+	echo -e "$YS if) $CE Ifconfig               $YS l0) $CE Exit  "
+	echo -e "$YS  1) $CE Change MAC             $YS l1) $CE  Restore original MAC "
+	echo -e "$YS  2) $CE Disable wlan0          $YS l2) $CE  Interfaces available"	
+	echo -e "$YS 3d) $CE Available interfaces   $YS f1) $CE  FUCK ALL SYSTEM   "
+	echo -e "$YS se) $CE Social-Engineering Attacks "
+	echo -e "$YS interface)  $CE 	 Change Interface" 
 	echo -e " 0) Exit "
 	echo -e "$COL\nChoose:$CE"
     	read RESP
@@ -441,6 +442,9 @@ l3)
 5) #Disable wlan0mon
 	disable_wlan0mon #Function called
 ;;
+interface)
+	Set_interface
+;;
 0) #If u want out
 c=1
 	while [ $c -le 3 ] 
@@ -466,5 +470,5 @@ shift
 } #!Finish case
 
 # The script start here
-	Set_interface
+	#Set_interface
 	banner 
