@@ -1,6 +1,6 @@
 #!/bin/bash
 #Author Kleusy Cruz
-#Facebook Kleusy Cruz
+#Facebook Kleus Cruz
 #Linkdlin Kleusy Cruz
 #GitHub CassioCruz
 #Email cassio.sousa@outlook.pt
@@ -401,7 +401,7 @@ function banner
 clear
 	echo -e ""
 	echo -e "		[!]This Tool Must Run As ROOT\n"
-	echo -e "$COL The     ██      ███████  ██      ███████ $CE  $COL by Cassio Cruz $CE"
+	echo -e "$COL The     ██      ███████  ██      ███████ $CE  $COL by Kleusy Cruz $CE"
 	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE"
 	echo -e "$COL         ██      ██   ██  ██      ███████ $CE   "
 	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE "
