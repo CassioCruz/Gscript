@@ -401,7 +401,7 @@ function banner
 clear
 	echo -e ""
 	echo -e "		[!]This Tool Must Run As ROOT\n"
-	echo -e "$COL The     ██      ███████  ██      ███████ $CE  $COL by Kleusy Cruz $CE"
+	echo -e "$COL The     ██      ███████  ██      ███████ $CE  $COL by Cassio Cruz $CE"
 	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE"
 	echo -e "$COL         ██      ██   ██  ██      ███████ $CE   "
 	echo -e "$COL         ██      ██   ██  ██      ██   ██ $CE "
