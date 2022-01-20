@@ -80,7 +80,7 @@ function Disable_wlan0
 	echo -e ""
 	echo -e "Wlan0 interface is disable now... \n"
 	sleep 1
-	back_menu #function called@category:debuggers 'Shell Script'
+	back_menu #function called
 }
 
 function Enable_wlan0
@@ -301,32 +301,25 @@ function StarMon {
 #When u want back to main menu
 function back_menu
 {
- echo -e "\nPress y:"
+ echo -e "$COL \nPress y: $CE "
     read -n1  bck
         if [ $bck = "y" ]
 	    	then	
 	    		banner #function called
         else
-			volta=0
-			left=2     
-	  while [ $volta -lt 2 ]   
-           do 
-				echo -e "\nPress y to back to main menu"
-    		    read -n1 bck             
-				if [ $bck = "y" ]
-					then	
-						banner #function called
-				else
-					echo -e "\nLeft you $left attempt."
-				fi 
-					volta=$[$volta + 1]
-					left=$[$left - 1]
-				if [ $volta = 1 ]
-					then
-						echo "Come soon..."
-						break
-				fi
-	  done
+			volta=0     
+				while [ $volta -lt 2 ]   
+					do 
+						echo -e " $COL \nPress y to back to main menu $CE"
+						read -n1 bck             
+						if [ $bck = "y" ]
+							then	
+								banner #function called
+						else
+							echo -e "\nSorry I got go."
+							break
+						fi 					
+				done
         fi
 }
 function A_inst {
