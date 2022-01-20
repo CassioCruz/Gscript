@@ -75,7 +75,7 @@ function Disable_wlan0
 {
 	clear
 	rfkill unblock wifi &> /dev/null; rfkill unblock all &> /dev/null
-	ifconfig wlan0 down;
+	ifconfig $MANAGED down;
 	sleep 0.5
 	echo -e ""
 	echo -e "Wlan0 interface is disable now... \n"
@@ -87,7 +87,7 @@ function Enable_wlan0
 {
 	clear
 	sleep 0.5
-	airmon-ng stop wlan0mon;clear
+	airmon-ng stop $MANAGED;clear
 	service network-manager start
 	echo -e "Starting network-manager service..."
 	sleep 0.7
@@ -97,7 +97,7 @@ function Enable_wlan0
 }
 function disable_wlan0mon
 {
-	airmon-ng stop wlo1mon
+	airmon-ng stop $MONITOR
 	service network-manager start
 	echo -e "Interface wlan0mon disable...\n"
 	sleep 0.5
@@ -110,11 +110,11 @@ function disable_wlan0mon
 function interfaces 
 {
 	echo "        Cards ON"
-	wla=$(ifconfig | cut -d " " -f1 | grep -a "wlan0") #show wlan0interface
-	eth=$(ifconfig | cut -d " " -f1 | grep -a "eth0") #show eth0interface
-	lo=$(ifconfig | cut -d " " -f1 | grep -a "lo")  #show loopbackinterface
+	wla=$(ifconfig | cut -d " " -f1 | grep -a "w") #show wireless_interface
+	eth=$(ifconfig | cut -d " " -f1 | grep -a "e") #show eth0_interface
+	lo=$(ifconfig | cut -d " " -f1 | grep -a "lo")  #show loopback_interface
 	echo ""
-	echo -e " $eth \n\n $wla \n\n $lo\n\n"
+	echo -e "\n $eth "wired card"  \n\n $wla " wireless card "\n\n $lo "loopbackinterface"\n\n"
 	echo -e "\n\n $mc"
 	sleep 0.5
 	back_menu #function calledcalled
@@ -377,7 +377,7 @@ read WIRED
 		then
 			WIRED="enp1s0f0"
 	fi
-#
+
 	if [ ! -d $GPATH/interfaces ] #check if directory exist
 		then 
 			mkdir $GPATH/interfaces
