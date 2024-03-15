@@ -1,6 +1,5 @@
 #!/bin/bash
 #Author Kleusy Cruz
-#Facebook Kleus Cruz
 #Linkdlin Kleusy Cruz
 #GitHub CassioCruz
 #Email cassio.sousa@outlook.pt
@@ -122,9 +121,21 @@ function interfaces
 	sleep 0.5
 	back_menu #function calledcalled
 }
+function install_macchanger() {
+    # Verifica se o macchanger está disponível no PATH do sistema
+    if ! command -v macchanger &>/dev/null; then
+        echo "macchanger não está instalado no sistema. Tentando instalar..."
+		    sudo apt-get update
+            sudo apt-get -y install macchanger
+        else
+            echo "Não foi possível instalar macchanger. Gerenciador de pacotes não suportado."
+            exit 1
+    fi
+}
 #####FuncionMacchange
 function changemac 
 {	clear
+	install_macchanger
 	All_interfaces #Function called
 	read macc
 	## Execute here if you choose wlan0

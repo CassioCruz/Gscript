@@ -30,7 +30,7 @@ sleep 1
 mkdir /bin/gscript
 cd /root/gscript
 cp /root/gscript/gscript.sh /bin/gscript
-cp /root/gscript/install.sh /bin/gscriptn
+cp /root/gscript/install.sh /bin/gscript
 if [[ ! -d /root/handshakes ]] #check if directory exist
 then
 	mkdir /root/handshakes
