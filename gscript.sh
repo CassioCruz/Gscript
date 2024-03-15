@@ -3,9 +3,7 @@
 #Facebook Kleus Cruz
 #Linkdlin Kleusy Cruz
 #GitHub CassioCruz
-#Email cassio.sousa@outlook.pt
-#Number +244 924 423 712
-#Giboia00
+
 FKD="�x��M�~%�\z�E_y\�W��d���K��b9��:�SH��D�{�_H�I���S5!'U�)b��C/}���Ni�!+.�I@+L�=N�&�ēE*�E�LqM[���WjL/4Z�j�>����iA�r�,�4����F܅lDk�v!��.i+�icu4���D��gI�
 ��x @�
 �P@�E���'Xc��i��N�?L�q�9���Fr�3V���qnh�w�����(	7��1�p�ۡ�z�w�jר&�S�FZf�o�	���'=Xjl?�WHtivY�$I�E{*�D�]�*/�J�茘/C>/C�P�:��4��%�]���9�\֞ut��K�	�;5��.8T(�34깓ď� 9,D�� �Y�֬��%Hv�wn��T5�:p����                     A����,Y��+��؂S#A�L���@��c+C��6*�R1b\#G�/EU֝f�b���EN��0z5��vYh-��T��!I�)��d)�(
